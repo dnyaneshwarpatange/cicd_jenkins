@@ -24,7 +24,7 @@ pipeline {
 
 
                     sh """
-                    ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} "mkdir ${APP_DIR}"
+                    ssh -o StrictHostKeyChecking=no ${VPS_USER}@${VPS_IP} "mkdir -p ${APP_DIR}"
 
 
                     scp -o StrictHostKeyChecking=no -r * ${VPS_USER}@${VPS_IP}:${APP_DIR}
