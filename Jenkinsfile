@@ -22,23 +22,23 @@ agent any {
 
                     sh """
                      # here we are creting a directory in the vps
-                    ssh -o StrightHostCheck=no ${VPS_USER}@${VPS_IP} "mkdir ${APP_DIR}"
+                    ssh -o StrictHostChecking=no ${VPS_USER}@${VPS_IP} "mkdir ${APP_DIR}"
 
                     #now will copy the code into the vps from github
 
-                    scp -o StrightHostCheck=no -r ${VPS_USER}@${VPS_IP}:${APP_DIR}
+                    scp -o StrictHostChecking=no -r * ${VPS_USER}@${VPS_IP}:${APP_DIR}
 
 
                     #now will build the docker image and run the containner
 
-                    ssh -o StrightHostCheck=no ${VPS_USER}@${VPS_IP} '''
+                    ssh -o StrictHostChecking=no ${VPS_USER}@${VPS_IP} '''
 
                     cd ${APP_DIR}
 
 
                     echo "Building the docker image"
 
-                    docker build -t node_azure_app
+                    docker build -t node_azure_app .
 
                     #also we need to check and stop already existing container there so will chek and stop there
 
