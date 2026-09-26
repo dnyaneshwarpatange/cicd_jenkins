@@ -24,15 +24,12 @@ pipeline {
 
 
                     sh """
-                    // here we are creting a directory in the vps
                     ssh -o StrictHostChecking=no ${VPS_USER}@${VPS_IP} "mkdir ${APP_DIR}"
 
-                    // now will copy the code into the vps from github
 
                     scp -o StrictHostChecking=no -r * ${VPS_USER}@${VPS_IP}:${APP_DIR}
 
 
-                    // now will build the docker image and run the containner
 
                     ssh -o StrictHostChecking=no ${VPS_USER}@${VPS_IP} '''
 
@@ -43,13 +40,11 @@ pipeline {
 
                     docker build -t node_azure_app .
 
-                    // also we need to check and stop already existing container there so will chek and stop there
 
                     docker stop node_app_running || true
 
                     docker rm node_app_running  || true
 
-                    // now will run the container and map the ports
 
                     docker run -d -p 80:3000 --name node_app_running node_azure_app
 
