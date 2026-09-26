@@ -11,7 +11,7 @@ agent any {
     stages{
         stage('Checkout code on the github'){
             steps{
-                Checkout scm
+                checkout scm
             }
         }
 
