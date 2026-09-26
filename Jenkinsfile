@@ -1,4 +1,7 @@
-agent any {
+pipeline {
+    agent any 
+
+    
     environment{
 
         // here I have updated ip here but we should update this_in jenkins where I have updates key file in credentials section.
