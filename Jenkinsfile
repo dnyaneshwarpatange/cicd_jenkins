@@ -1,5 +1,7 @@
 agent any {
     environment{
+
+        # here I have updated ip here but we should update this_in jenkins where I have updates key file in credentials section.
         VPS_IP = '20.193.138.209'
         VPS_USER = 'azureuser'
         APP_DIR= '~/app_deployment'
@@ -65,6 +67,6 @@ agent any {
             }
         }
 
-        }
+
     }
 }
