@@ -1,7 +1,7 @@
 pipeline {
     agent any 
 
-    
+
     environment{
 
         // here I have updated ip here but we should update this_in jenkins where I have updates key file in credentials section.
@@ -32,7 +32,7 @@ pipeline {
                     scp -o StrictHostChecking=no -r * ${VPS_USER}@${VPS_IP}:${APP_DIR}
 
 
-                    #now will build the docker image and run the containner
+                    // now will build the docker image and run the containner
 
                     ssh -o StrictHostChecking=no ${VPS_USER}@${VPS_IP} '''
 
